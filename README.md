@@ -1,78 +1,77 @@
-## 🏠 Real Estate Market Intelligence Pipeline
+## 🏠 Real Estate Market Intelligence Platform
+End-to-End Engineering on Microsoft Fabric
 
-### End-to-End Engineering with Microsoft Fabric & PySpark
+### 🌟 Project Overview
+This project delivers a comprehensive data platform for real estate market analysis. Using Microsoft Fabric, I engineered a scalable Medallion Architecture pipeline that ingests raw property data and transforms it into a highly optimized Star Schema. The solution focuses on data integrity, automated orchestration, and self-service BI.
 
-🌟 Project Strategy
+## 🏗️ The Medallion Pipeline
+The data flows through four distinct stages of refinement, ensuring high-quality insights at the Gold layer.
 
-This repository contains a full-scale data engineering solution designed to process and analyze high-volume real estate transactions. Using the Medallion Architecture, I built a robust pipeline that converts raw property data into a highly optimized Star Schema, enabling deep market insights through Power BI.
+### 1. Ingestion & Bronze (Raw)
+Notebooks: Raw_To_Landing.ipynb | Landing_to_Bronze_table.ipynb
 
-🏗️ The Data Journey (Medallion Architecture)
+Process: Automated CSV ingestion into the OneLake environment.
 
-📂 1. Landing Zone (Raw Ingestion)
-Notebook: Raw_To_Landing.ipynb
+Storage: Data is converted to Delta format, enabling ACID transactions and efficient file management.
 
-Process: Automated ingestion of source CSV files into the Fabric Lakehouse.
-
-Feature: Implemented partitioned storage by Processing_date to ensure a scalable and organized landing zone.
-
-🛡️ 2. Bronze Layer (Validation)
-Notebook: Landing_to_Bronze_table.ipynb
-
-Process: Initial schema definition and Delta table conversion.
-
-Feature: Established the foundation for ACID transactions and time-travel capabilities within the Lakehouse.
-
-🥈 3. Silver Layer (Optimization & Cleaning)
+### 2. Silver (Refined)
 Notebook: Silvertransformation.ipynb
 
-Process: Data type standardization, currency/area normalization, and record deduplication.
+Process: Data type standardization, currency normalization, and deduplication logic.
 
-Logic: Leveraged Spark Window Functions to ensure the most relevant property records are promoted to the analytics layer.
+Feature: Utilized Spark Window Functions to ensure the "Golden Record" is maintained for every property.
 
-🥇 4. Gold Layer (The Analytics Hub)
+### 3. Gold (Curated Analytics)
 Notebook: Silver_to_gold_transformation.ipynb
 
-Process: Dimensional modeling using the Kimball methodology.
+Process: Dimensional modeling (Kimball) to create a high-performance Star Schema.
 
-Model: Developed a specialized Star Schema consisting of:
+Deliverables: FactAverageHousePrice, DimHouse, and DimDate.
 
-Fact Table: FactAverageHousePrice (Aggregated market metrics).
+## 🛠️ Microsoft Fabric Engineering Excellence
 
-Dimension Tables: DimHouse (Property attributes) and DimDate.
+Data Lineage & Traceability
+The visual map below shows the end-to-end lifecycle of the data, from the initial landing zone files through the Spark transformations to the final Power BI report.
 
-🛠️ Technical Highlights
-
-Dimensional Modeling
-Designed a semantic model optimized for DAX performance, reducing query latency and ensuring accurate "Average Price per Area" calculations.
-
-Advanced Spark Operations
-Utilized complex PySpark transformations and windowing logic to maintain data integrity across 19,000+ records.
-
-Automated Maintenance
-Included OPTIMIZE and VACUUM routines within the notebooks to manage file sizes and ensure peak performance in a production-like environment.
-
-📊 Visual Insights & Deliverables
-
-Semantic Model (Relationship View)
-This view demonstrates the logical structure of the data, ensuring clear relationships between property attributes and financial metrics.
-
-<img width="1556" height="654" alt="semantic model" src="https://github.com/user-attachments/assets/e6c6523f-1edb-4bd9-999b-94a1c8a64c16" />
-
-Pipeline Execution
-Proof of successful end-to-end orchestration and data flow.
-
-<img width="2237" height="1074" alt="Pipeline run" src="https://github.com/user-attachments/assets/f0dcf4d9-01cb-4e82-a0d3-ad62e30574f5" />
+<img width="1809" height="1173" alt="Lineage view" src="https://github.com/user-attachments/assets/ef42414a-1c85-4859-ab25-fa6bfe481565" />
 
 
-Executive Power BI Dashboard
-An interactive interface allowing stakeholders to explore market trends, furnishing distributions, and amenity-based pricing.
+This Image shows the Lake house explorer
 
-<img width="2037" height="1132" alt="Dashboard" src="https://github.com/user-attachments/assets/6267f7a6-bb46-4bf5-920b-ed056835606e" />
+<img width="485" height="810" alt="Lakehouse Explorer" src="https://github.com/user-attachments/assets/e4950c9f-b01f-46ae-9a27-28abd6ae20f1" />
 
 
-📂 Repository Contents
-Notebooks/: Complete .ipynb source code for all four stages.
+Automated Orchestration
 
-Documentation/: Architecture diagrams and technical specifications.
+The pipeline is orchestrated using Fabric Data Pipelines, ensuring that notebook executions follow a logical dependency order with built-in monitoring.
 
-Screenshots/: Visual evidence of pipeline success and dashboard des
+<img width="2237" height="1074" alt="Pipeline run" src="https://github.com/user-attachments/assets/5f87cfa2-a8da-4f80-9793-92df8c8bb9bc" />
+
+
+SQL Endpoint & Accessibility
+
+To support cross-functional teams, the Gold layer is exposed via a SQL Endpoint, allowing analysts to query the Delta tables directly using T-SQL.
+
+<img width="2006" height="1114" alt="SQL EnD point view" src="https://github.com/user-attachments/assets/f90b6f4d-783d-45af-b66d-7c59da1d182b" />
+
+
+## 📊 Business Intelligence Dashboard
+
+The final dashboard provides stakeholders with instant visibility into market trends and inventory metrics.
+
+Total Listings: Real-time count of property inventory.
+
+Market Mix: Breakdown of property distribution by Furnishing Status.
+
+Price Drivers: Identification of premium value amenities (Parking, AC, and Area).
+
+<img width="2037" height="1132" alt="Dashboard" src="https://github.com/user-attachments/assets/9f2d612c-3b2d-4ca0-9e84-9bd0f1fc5e19" />
+
+
+## 📂 Repository Contents
+
+Notebooks/: Full PySpark source code for all Medallion layers.
+
+Screenshots/: Technical evidence of pipeline success and architecture.
+
+Schema/: Documentation of the Star Schema semantic model.
