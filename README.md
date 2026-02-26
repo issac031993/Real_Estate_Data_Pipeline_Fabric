@@ -28,7 +28,7 @@ Process: Dimensional modeling (Kimball) to create a high-performance Star Schema
 
 Deliverables: FactAverageHousePrice, DimHouse, and DimDate.
 
-## 🛠️ Microsoft Fabric Engineering Excellence
+## 🛠️ Microsoft Fabric Engineering 
 
 Data Lineage & Traceability
 The visual map below shows the end-to-end lifecycle of the data, from the initial landing zone files through the Spark transformations to the final Power BI report.
