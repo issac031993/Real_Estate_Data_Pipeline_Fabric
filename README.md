@@ -54,6 +54,11 @@ To support cross-functional teams, the Gold layer is exposed via a SQL Endpoint,
 
 <img width="2006" height="1114" alt="SQL EnD point view" src="https://github.com/user-attachments/assets/f90b6f4d-783d-45af-b66d-7c59da1d182b" />
 
+Semantic model snapshot
+
+
+<img width="1556" height="654" alt="semantic model" src="https://github.com/user-attachments/assets/6c0e5ac6-a5f6-4bd0-8120-46254c9e9977" />
+
 
 ## 📊 Business Intelligence Dashboard
 
