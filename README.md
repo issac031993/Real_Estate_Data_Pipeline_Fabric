@@ -79,4 +79,4 @@ Notebooks/: Full PySpark source code for all Medallion layers.
 
 Screenshots/: Technical evidence of pipeline success and architecture.
 
-Schema/: Documentation of the Star Schema semantic model.
+Schema/:Snapshot of the Star Schema semantic model.
